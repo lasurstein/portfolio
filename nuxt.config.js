@@ -11,20 +11,6 @@ const routerBase =
     : {}
 
 export default {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
-  target: "server",
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
   head: {
     titleTemplate: "%s - " + process.env.npm_package_name,
     title: process.env.npm_package_name || "",
@@ -37,8 +23,11 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/portfolio/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/portfolio/favicon.ico" }
+    ]
   },
+  ...routerBase,
   /*
    ** Global CSS
    */
@@ -87,8 +76,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    publicPath: "/portfolio/_nuxt/",
-    extend(config, ctx) {}
-  },
-  routerBase
+    publicPath: "/portfolio/_nuxt/"
+  }
 };
+// if (process.env.DEPLOY_ENV === "LOCAL") {
+//   module.exports["router"] = { base: "/" };
+// }

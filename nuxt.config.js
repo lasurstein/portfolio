@@ -1,14 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
-// `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-      router: {
-        base: '/portfolio/'
-      }
-    }
-    : {}
+// // `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
+// const routerBase =
+//   process.env.DEPLOY_ENV === 'GH_PAGES'
+//     ? {
+//       router: {
+//         base: '/portfolio/'
+//       }
+//     }
+//     : {}
 
 export default {
   head: {
@@ -27,7 +27,9 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/portfolio/favicon.ico" }
     ]
   },
-  ...routerBase,
+  route: {
+    base: '/portfolio/'
+  },
   /*
    ** Global CSS
    */
@@ -76,9 +78,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    publicPath: "/portfolio/_nuxt/"
+    publicPath: "/portfolio/static/"
   }
 };
-// if (process.env.DEPLOY_ENV === "LOCAL") {
-//   module.exports["router"] = { base: "/" };
-// }
+if (process.env.DEPLOY_ENV === "LOCAL") {
+  module.exports["router"] = { base: "/" };
+}

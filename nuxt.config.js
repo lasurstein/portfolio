@@ -28,7 +28,7 @@ export default {
     ]
   },
   route: {
-    base: '/portfolio/'
+    base: "/portfolio/"
   },
   /*
    ** Global CSS
@@ -79,6 +79,9 @@ export default {
    */
   build: {
     publicPath: "/portfolio/static/"
+  },
+  generate: {
+    fallback: true
   }
 };
 if (process.env.DEPLOY_ENV === "LOCAL") {

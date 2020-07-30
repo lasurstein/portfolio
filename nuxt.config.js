@@ -91,5 +91,5 @@ export default {
   */
   build: {
   },
-  ...routerBase,
+  routerBase,
 }
